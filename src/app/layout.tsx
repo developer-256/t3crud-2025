@@ -4,6 +4,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "@/trpc/react";
+import { Toaster as Sonner } from "sonner";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -18,6 +19,12 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
+        <Sonner
+          richColors
+          toastOptions={{
+            classNames: { loading: "bg-[#001f0f] text-blue-400" },
+          }}
+        />
       </body>
     </html>
   );

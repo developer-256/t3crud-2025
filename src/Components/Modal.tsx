@@ -6,12 +6,14 @@ const Modal = ({
   setOpen,
   onContinue,
   className,
+  disabled,
 }: {
   children: ReactNode;
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   onContinue: () => void;
   className?: string;
+  disabled?: boolean;
 }) => {
   if (open)
     return (
@@ -23,14 +25,16 @@ const Modal = ({
 
           <div className="flex items-center justify-end gap-3">
             <button
+              disabled={disabled}
               onClick={() => setOpen(!open)}
-              className="rounded-lg bg-red-500 px-4 py-1.5 text-white shadow-md"
+              className={`rounded-lg bg-red-500 px-4 py-1.5 text-white shadow-md ${disabled && "opacity-50"}`}
             >
               Cancel
             </button>
             <button
+              disabled={disabled}
               onClick={onContinue}
-              className="rounded-lg bg-green-500 px-4 py-1.5 text-white shadow-md"
+              className={`rounded-lg bg-green-500 px-4 py-1.5 text-white shadow-md ${disabled && "opacity-50"}`}
             >
               Continue
             </button>
