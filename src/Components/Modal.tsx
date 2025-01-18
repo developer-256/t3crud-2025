@@ -5,16 +5,20 @@ const Modal = ({
   open,
   setOpen,
   onContinue,
+  className,
 }: {
   children: ReactNode;
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   onContinue: () => void;
+  className?: string;
 }) => {
   if (open)
     return (
       <section className="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-black/50 backdrop-blur-sm">
-        <div className="flex min-h-64 w-[600px] flex-col rounded-lg border-2 bg-white px-3 py-2.5 shadow-xl">
+        <div
+          className={`flex min-h-64 w-[500px] flex-col rounded-lg border-2 bg-white px-3 py-2.5 shadow-xl ${className}`}
+        >
           <div className="w-full flex-1">{children}</div>
 
           <div className="flex items-center justify-end gap-3">
